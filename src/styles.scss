@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@include mat.core();
+
+$cardApp-primary: mat.define-palette(mat.$cyan-palette);
+$cardApp-accent: mat.define-palette(mat.$teal-palette);
+$cardApp-warn: mat.define-palette(mat.$red-palette);
+
+$cardApp-theme: mat.define-dark-theme((
+  color: (
+    primary: $cardApp-primary,
+    accent: $cardApp-accent,
+    warn: $cardApp-warn,
+  ),
+));
+
+@include mat.all-component-themes($cardApp-theme);

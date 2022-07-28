@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cardsApp';
+  cards: number[] = [];
+
+  onAddCard() {
+    this.cards.push(Math.round(Math.random() * 100))
+    console.log(this.cards);
+  }
+
+  onDelete(_elem: any) {
+    this.cards = this.cards.filter(ind => ind != _elem)
+  }
+
+  onSort() {
+    this.cards.sort((a,b) => a-b)
+  }
 }
