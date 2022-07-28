@@ -9,15 +9,14 @@ export class AppComponent {
   cards: number[] = [];
 
   onAddCard() {
-    this.cards.push(Math.round(Math.random() * 100))
-    console.log(this.cards);
+    this.cards = [ ...this.cards, Math.round(Math.random() * 100) ];
   }
 
-  onDelete(_elem: any) {
-    this.cards = this.cards.filter(ind => ind != _elem)
+  onDelete(cardNum: number) {
+    this.cards = this.cards.filter((_cardNum) => _cardNum != cardNum);
   }
 
   onSort() {
-    this.cards.sort((a,b) => a-b)
+    this.cards =  [...this.cards].sort((a,b) => a - b);
   }
 }
