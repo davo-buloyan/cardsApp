@@ -4,11 +4,20 @@
       add_card
       </span></mat-icon> Add Card
   </button>
+
+
   <button mat-button color="accent" (click)="onSort()">
     <mat-icon>sort</mat-icon> Sort Cards
   </button>
 </mat-toolbar>
 
 <div class="content-container">
-  <app-cards [cards]="cards" (deleteItem)="onDelete($event)"></app-cards>
+  <!-- <app-cards [cards]="cards" (deleteItem)="onDelete($event)"></app-cards> -->
+  <app-cards
+    [cards]="cards$ | async"
+    (deleteItem)="onDelete($event)"
+    (dropEvent)="moveItem($event)"
+  >
+  </app-cards>
+
 </div>
